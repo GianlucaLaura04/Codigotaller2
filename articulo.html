@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolling Stone en Español - Artículo</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Habibi&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  
+
+</head>
+<body>
+
+<header class="container-fluid px-0">
+  <div class="top-bar py-3 position-relative">
+    <div class="container d-flex align-items-center justify-content-between px-3" style="max-width: 1160px;">
+  <div class="hamburger-btn" onclick="abrirMenu()" style="display:none; cursor:pointer; z-index:1;">
+    <svg width="28" height="28" viewBox="0 0 16 16" fill="#111"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5"/></svg>
+  </div>
+      
+      <div class="search-wrap d-flex align-items-center gap-2 border rounded-pill px-3 py-1" style="width: 100%; max-width: 260px; z-index: 1;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="form-control form-control-sm border-0 p-0 bg-transparent shadow-none" placeholder="Buscá álbumes, artistas, noticias">
+      </div>
+      
+     <div class="position-absolute start-50 top-50 translate-middle">
+  <a href="index.html" class="d-block" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+    <img src="imagenes/Rolling_Stone_logo.svg.png" alt="Rolling Stone" style="max-height: 40px; width: auto; object-fit: contain;">
+  </a>
+</div>
+      <div class="user-icon p-1" style="z-index: 1; margin-right: 100px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#111" stroke="#111" stroke-width="0.5">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+  
+<nav class="nav-rs nav justify-content-center gap-2 gap-sm-4 py-2 font-habibi">
+  <a class="nav-link px-2 px-sm-3 text-red" href="musica.html">Música</a>
+  <a class="nav-link px-2 px-sm-3" href="cineytv.html">Cine y TV</a>
+  <a class="nav-link px-2 px-sm-3" href="actualidad.html">Actualidad</a>
+  <a class="nav-link px-2 px-sm-3" href="comunidad.html">Comunidad</a>
+  <a class="nav-link px-2 px-sm-3" href="archivors.html">Archivo RS</a>
+</nav>
+</header>
+
+<div id="menu-mobile" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#E8001C; z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:0;">
+  <div style="position:absolute; top:16px; right:20px; cursor:pointer; font-size:28px; color:#fff;" onclick="cerrarMenu()">✕</div>
+  <a href="musica.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Musica</a>
+  <a href="cineytv.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Cine y TV</a>
+  <a href="actualidad.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Actualidad</a>
+  <a href="comunidad.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Comunidad</a>
+  <a href="archivors.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center;">ArchivosRS</a>
+</div>
+
+<main class="container my-4 px-3" style="max-width: 820px; text-align: justify;">
+  
+  <div class="mt-3 mb-4 mx-auto text-start px-3 px-md-0" style="max-width: 950px;">
+    <span class="text-secondary font-serif" style="font-size: 16px;">Home > Música > Historias</span>
+  </div>
+
+  <div class="my-4 mx-auto hero-image-container">
+    <img src="articulo/eladio1.png" alt="Eladio Carrión">
+    <div class="hero-overlay">
+      <span>Por Martin Campos</span>
+      <span>6 de Junio, 2026</span>
+    </div>
+  </div>
+
+<h1 class="font-serif text-dark my-4 text-start article-title px-3">
+  <span class="fw-bold text-uppercase">Eladio Carrión: El verdadero significado del éxito
+</h1>
+
+  <p class="font-serif text-dark mb-5 mx-auto text-left fw-bold fst-italic article-subtitle px-3 px-md-0" style="font-size: 20px; max-width: 800px; line-height: 1.3;">
+    Más allá del reconocimiento y las diversas cimas artísticas que ha escalado, la estrella reflexiona el verdadero significado del poder y de ser considerado un magnate en el trap hispanohablante
+  </p>
+
+  <div class="d-flex justify-content-between align-items-center text-dark font-serif my-4 mx-auto px-3 px-md-0" style="font-size: 14px; max-width: 950px;">
+    <span>Por Martin Campos</span>
+    <span>6 de Junio, 2026</span>
+  </div>
+
+  <div class="font-serif text-dark mt-5 mx-auto article-body px-3 px-md-0" style="font-size: 17px; line-height: 1.65; max-width: 800px; text-align: justify;">
+    
+    <p class="mb-4">
+      Éxito. Una palabra tan poderosa como contradictoria. En la industria del entretenimiento, su significado ha sido moldeado una y otra vez por artistas que creen haber conquistado la cima: fama, fortuna, cadenas brillantes, reconocimiento mundial y una vida rodeada de lujos que, muchas veces, terminan alejándolos de lo verdaderamente esencial. Sin embargo, entre tanto ruido y superficialidad, <strong class="fw-bold">todavía existen figuras capaces de mirar más allá de lo material y encontrar el verdadero valor de la vida en los instantes más humanos, íntimos y trascendentes de su existencia.</strong> Y cuando eso sucede, su arte deja de ser solo música: se convierte en verdad, en emotion pura, en algo genuinamente invaluable, una rareza maravillosa. Entre esos nombres destaca, sin duda, el gran Eladio Carrión.
+    </p>
+
+    <p>El trapero puertorriqueño ha encontrado el éxito en aquello que muchos olvidan mientras persiguen aplausos: la cotidianidad, los afectos y las pequeñas maravillas que comparte con quienes lo rodean. </p>
+
+    <div class="my-5 text-center mx-auto" style="width: 100%; max-width: 950px;">
+      <img src="articulo/eladio3.png" alt="Tapa Rolling Stone Eladio Carrión" class="img-fluid" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <p class="mb-4">
+      Su visión no gira únicamente en torno a sí mismo, sino también hacia su familia, sus amigos y cada persona que forma parte de su camino y de su equipo de trabajo. En un mundo donde el ego suele consumir a las grandes estrellas, Eladio Carrión parece haber alcanzado una de las cimas más difíciles y admirables que un artista puede conquistar en vida: la humildad y la sencillez.
+    </p>
+
+    <p class="mb-4">
+      En el panorama actual de la música urbana, Eladio señala que la escena se ha vuelto en ocasiones algo tóxica, influida tanto por ciertas dinámicas de la industria como por algunos fanáticos que generan controversias en torno a situaciones que escapan al control de los artistas. Aunque no suele estar pendiente de este tipo de noticias, el cantante reconoce que, entre lo positivo y lo negativo, no cambiaría nada. Para él, ese equilibrio entre aciertos y errores ha sido precisamente lo que ha permitido que la música evolucione y llegue a ser como la conocemos hoy. "En el género hay muchas cosas malas: mucho egoísmo y pisoteo, pero eso lo vemos en todas las industrias y en la vida en general."
+    </p>
+
+    <p class="mb-5">
+      Virtudes extrañas, casi extintas, dentro de una industria acostumbrada a medir el valor humano en números, lujos y apariencias. "El éxito es diferente para todo el mundo. Todo depende de cada uno. Ya sean cosas pequeñas o muy grandes. Hay personas que sienten el éxito cuando lo tienen todo, y hay otras que lo ven cuando están en salud", reflexiona. Uno podría pensar que, por el peso de su nombre en el trap y por esa voz que impone desde el primer verso, avanza a toda velocidad, sin mirar atrás y sin detenerse a pensar a quién podría dejar herido en el camino. Pero Eladio está muy lejos de ser eso. La humildad y la vulnerabilidad sostienen gran parte de lo que es como persona y como artista, porque —como él mismo ha dicho— <strong class="fw-bold">un artista no es un superhéroe; sigue siendo, ante todo, un ser humano.</strong>
+    </p>
+
+  </div>
+
+<div class="my-5 text-center mx-auto hero-portada-mobile" style="width: 100%; max-width: 820px;">
+  <img src="articulo/eladio2.png" alt="Tapa Rolling Stone Eladio Carrión" class="img-fluid" style="width: 100%; height: auto; display: block;">
+</div>
+
+<div class="font-serif text-dark mx-auto mb-4 article-closing px-3 px-md-0" style="font-size: 17px; line-height: 1.65; max-width: 800px; text-align: justify;">
+  <p>
+    De la comedia a llenar estadios, Eladio Carrión ha construido un camino que lo posiciona como uno de los grandes traperos de su generación.
+  </p>
+  <p>
+    Un artista que no teme confrontar cuando es necesario, pero que también se atreve a mostrarse desde su lado más humano, honesto y vulnerable. Su historia no solo habla de éxito, sino también de lealtad: proteger a los suyos y protegerse a sí mismo se ha convertido en parte esencial de su propósito. Y es precisamente ese compromiso el que carga con orgullo, como el verdadero peso de haber llegado a la cima sin perder su esencia. “Ese Eladio del pasado es un gangster, un joseador. Creo que es hasta más joseador que el Eladio de ahora. Él sabe lo que está haciendo y que está loco, que esa locura lo llevará a crear cosas hermosas. No le diría nada, solo lo miraría y le daría una palmadita en la espalda y me iría”, finaliza con firmeza.
+  </p>
+</div>
+
+      <div class="d-flex justify-content-end gap-2 mt-4 pt-2 px-3 px-md-0">
+        <div style="width: 24px; height: 24px;"><img src="articulo/face.png" alt="Facebook" style="max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.7;"></div>
+        <div style="width: 24px; height: 24px;"><img src="articulo/insta.png" alt="Instagram" style="max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.7;"></div>
+        <div style="width: 24px; height: 24px;"><img src="articulo/wasap.png" alt="WhatsApp" style="max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.7;"></div>
+        <div style="width: 24px; height: 24px;"><img src="articulo/telegram.png" alt="Telegram" style="max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.7;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center mt-5 pt-3 mx-auto" style="max-width: 950px;">
+    <div class="col-12 px-0">
+      
+      <hr class="text-secondary opacity-25 mb-5">
+
+      <div class="mb-4 text-start px-3 px-md-0">
+        <h3 class="font-serif fw-bold text-uppercase m-0 section-title-underline" style="font-size: 24px;">
+          Comentarios <span style="color: var(--red, #E8001C);">(22)</span>
+        </h3>
+      </div>
+
+      <div class="d-flex align-items-start gap-3 mb-5 text-start px-3 px-md-0">
+        <div class="flex-shrink-0" style="width: 48px; height: 48px;">
+          <svg viewBox="0 0 100 100" class="w-100 h-100">
+            <circle cx="50" cy="50" r="50" fill="#f58282" />
+            <circle cx="50" cy="40" r="20" fill="#fff" />
+            <path d="M20,80 C20,60 35,55 50,55 C65,55 80,60 80,80" fill="#fff" />
+          </svg>
+        </div>
+        <div class="flex-grow-1 border rounded-3 p-3 text-muted" style="min-height: 100px; background-color: #fff; font-size: 14px;">
+          Iniciá sesión para comentar
+        </div>
+      </div>
+
+      <div class="d-flex flex-column gap-4 text-start px-3 px-md-0">
+
+        <div class="card border-0 shadow-sm rounded-4 p-4" style="background-color: #fff;">
+          <div class="d-flex gap-3 position-relative">
+            <div class="flex-shrink-0 rounded-circle overflow-hidden" style="width: 52px; height: 52px;">
+              <img src="articulo/juan.png" alt="Juan Diaz" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="flex-grow-1 font-serif">
+              <div class="mb-1">
+                <h5 class="d-inline fw-bold text-dark fs-6">Juan Diaz</h5>
+                <span class="text-muted d-block" style="font-size: 11px; font-family: sans-serif;">1,105 reviews</span>
+              </div>
+              <h6 class="fw-bold text-dark my-2 fs-6">MUY BUENO!!</h6>
+              <p class="text-secondary mb-0 lh-base" style="font-size: 14px; text-align: justify; padding-right: 80px;">
+                Está bueno ver que Eladio no se vende como alguien perfecto o inalcanzable. eso me hace conectar con él, porque tener éxito y seguir siendo una persona humilde vale más que cualquier premio o cantidad de reproducciones!! VOTEN POR COCO CHANEL CASI TOP 10!!
+              </p>
+            </div>
+            <div class="position-absolute top-0 end-0 text-muted" style="font-size: 12px; font-family: sans-serif;">
+              hace 2 hs
+            </div>
+            <div class="position-absolute bottom-0 end-0 mb-1">
+              <button class="btn btn-sm text-white px-3 py-1 fw-bold d-flex align-items-center gap-2 rounded-3" style="background-color: var(--red, #E8001C); font-size: 13px; font-family: sans-serif; border: none;">
+                <span>36</span>
+                <span style="font-size: 11px;">❤</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4" style="background-color: #fff;">
+          <div class="d-flex gap-3 position-relative">
+            <div class="flex-shrink-0 rounded-circle overflow-hidden" style="width: 52px; height: 52px;">
+              <img src="articulo/maria.png" alt="María Gonzales" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="flex-grow-1 font-serif">
+              <div class="mb-1">
+                <h5 class="d-inline fw-bold text-dark fs-6">María Gonzales</h5>
+                <span class="text-muted d-block" style="font-size: 11px; font-family: sans-serif;">30 reviews</span>
+              </div>
+              <h6 class="fw-bold text-dark my-2 fs-6">Buena noticia!!!</h6>
+              <p class="text-secondary mb-0 lh-base" style="font-size: 14px; text-align: justify; padding-right: 80px;">
+                ime encanta me encantaaaaaaaaaaaaaaaaaaaaaaaaaa me encantooo!! te amo Eladio carrion, de verdad que este disco es una locura total, posta no puedo parar de escucharlo desde que salió. El que le puso 3 estrellas claramente no entiende nada de música urbana, las barras que tira en este álbum son de otro planeta. ¡Para mí es un 5 estrellas cantado, juegue quien juegue! que genialidad me encanta
+              </p>
+            </div>
+            <div class="position-absolute top-0 end-0 text-muted" style="font-size: 12px; font-family: sans-serif;">
+              hace 8 hs
+            </div>
+            <div class="position-absolute bottom-0 end-0 mb-1">
+              <button class="btn btn-sm text-white px-3 py-1 fw-bold d-flex align-items-center gap-2 rounded-3" style="background-color: var(--red, #E8001C); font-size: 13px; font-family: sans-serif; border: none;">
+                <span>12</span>
+                <span style="font-size: 11px;">❤</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4" style="background-color: #fff;">
+          <div class="d-flex gap-3 position-relative">
+            <div class="flex-shrink-0 rounded-circle overflow-hidden" style="width: 52px; height: 52px;">
+              <img src="articulo/el otro.png" alt="Pablo Gomez" class="w-100 h-100" style="object-fit: cover;">
+            </div>
+            <div class="flex-grow-1 font-serif">
+              <div class="mb-1">
+                <h5 class="d-inline fw-bold text-dark fs-6">Pablo Gomez</h5>
+                <span class="text-muted d-block" style="font-size: 11px; font-family: sans-serif;">86 reviews</span>
+              </div>
+              <h6 class="fw-bold text-dark my-2 fs-6">ESPECTACULAR</h6>
+              <p class="text-secondary mb-0 lh-base" style="font-size: 14px; text-align: justify; padding-right: 80px;">
+                Me encantó como llevaron el articulo, siempre uso la página para informarme me parece genial :)
+              </p>
+            </div>
+            <div class="position-absolute top-0 end-0 text-muted" style="font-size: 12px; font-family: sans-serif;">
+              hace 16 hs
+            </div>
+            <div class="position-absolute bottom-0 end-0 mb-1">
+              <button class="btn btn-sm text-white px-3 py-1 fw-bold d-flex align-items-center gap-2 rounded-3" style="background-color: var(--red, #E8001C); font-size: 13px; font-family: sans-serif; border: none;">
+                <span>3</span>
+                <span style="font-size: 11px;">❤</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center my-5">
+        <button class="btn text-white px-4 py-2 rounded-3 fw-medium" style="background-color: #000; font-family: sans-serif; font-size: 14px; letter-spacing: 0.2px; border: none;">
+          Cargar más comentarios
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+<footer class="bg-black text-white pt-5 pb-4 mt-5" style="font-family: Georgia, serif;">
+  <div class="container" style="max-width: 1160px;">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-6 pe-3 mb-4 mb-sm-0">
+            <h5 class="font-serif fw-bold text-uppercase fs-6 m-0 text-white tracking-wide" style="white-space: nowrap;">Rolling Stone en Español</h5>
+            <div class="border-bottom border-light opacity-25 my-2" style="border-width: 1px !important;"></div>
+            <ul class="list-unstyled d-flex flex-column gap-2 pt-2" style="font-size: 14px;">
+              <li><a href="index.html" class="text-white text-decoration-none opacity-75">Música</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Cine y TV</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Actualidad</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Comunidad</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Archivo RS</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 ps-sm-4">
+            <h5 class="font-serif fw-bold text-uppercase fs-6 m-0 text-white tracking-wide">Seguinos en</h5>
+            <div class="border-bottom border-light opacity-25 my-2" style="border-width: 1px !important;"></div>
+            <ul class="list-unstyled d-flex flex-column gap-2 pt-2" style="font-size: 14px;">
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Facebook.png" alt="Facebook" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Facebook</a>
+              </li>
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Twitter.png" alt="Twitter" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Twitter</a>
+              </li>
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Instagram.png" alt="Instagram" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Instagram</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/YouTube.png" alt="Youtube" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Youtube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ps-md-5 border-start border-secondary border-opacity-25">
+        <div class="mb-3 text-center text-md-start">
+          <img src="imagenes/Rolling_Stone_logo.svg.png" alt="Rolling Stone" style="max-height: 40px; width: auto; object-fit: contain;">
+        </div>
+        <div class="border-top border-bottom border-secondary border-opacity-25 py-2 my-3">
+          <div class="d-flex flex-wrap justify-content-between gap-2 text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 0.5px; font-family: sans-serif;">
+            <a href="#" class="text-white text-decoration-none opacity-90">Contactos</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Privacidad</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Términos de uso</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Publicidad</a>
+          </div>
+        </div>
+        <p class="text-secondary small lh-lg opacity-75 mt-3 mb-0" style="font-size: 12.5px; text-align: justify;">
+          Rolling Stone en Español es publicada por Tasty Media bajo licencia exclusiva de Rolling Stone LLC, una subsidiaria de Penske Media Corporation. Rolling Stone® es una marca registrada Rolling Stone, LLC. ©2025 Rolling Stone, LLC. Todos los derechos reservados. El nombre ROLLING STONE y el logo también son marcas registradas de Rolling Stone, LLC, cuya licencia ha sido concedida a TASTY MEDIA.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+  <script src="main.js"></script>
+</body>
+</html>
