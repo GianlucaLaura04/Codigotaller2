@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Música - Rolling Stone en Español</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Habibi&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+  
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="container-fluid px-0">
+  <div class="top-bar py-3 position-relative">
+    <div class="container d-flex align-items-center justify-content-between px-3" style="max-width: 1160px;">
+  <div class="hamburger-btn" onclick="abrirMenu()" style="display:none; cursor:pointer; z-index:1;">
+    <svg width="28" height="28" viewBox="0 0 16 16" fill="#111"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5"/></svg>
+  </div>
+      <div class="search-wrap d-flex align-items-center gap-2 border rounded-pill px-3 py-1" style="width: 100%; max-width: 260px; z-index: 1;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="form-control form-control-sm border-0 p-0 bg-transparent shadow-none" placeholder="Buscá álbumes, artistas, noticias">
+      </div>
+      <div class="position-absolute start-50 top-50 translate-middle">
+        <a href="index.html" class="d-block" style="transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <img src="imagenes/Rolling_Stone_logo.svg.png" alt="Rolling Stone" style="max-height: 40px; width: auto; object-fit: contain;">
+        </a>
+      </div>
+      <div class="user-icon p-1" style="z-index: 1; margin-right: 100px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#111" stroke="#111" stroke-width="0.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-rs nav justify-content-center gap-2 gap-sm-4 py-2 font-habibi">
+    <a class="nav-link px-2 px-sm-3 text-red" href="musica.html">Música</a>
+    <a class="nav-link px-2 px-sm-3" href="cineytv.html">Cine y TV</a>
+    <a class="nav-link px-2 px-sm-3" href="actualidad.html">Actualidad</a>
+    <a class="nav-link px-2 px-sm-3" href="comunidad.html">Comunidad</a>
+    <a class="nav-link px-2 px-sm-3" href="archivors.html">Archivo RS</a>
+  </nav>
+</header>
+
+<!-- MENÚ HAMBURGUESA MOBILE -->
+<div id="menu-mobile" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#E8001C; z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:0;">
+  <div style="position:absolute; top:16px; right:20px; cursor:pointer; font-size:28px; color:#fff;" onclick="cerrarMenu()">✕</div>
+  <a href="musica.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Musica</a>
+  <a href="cineytv.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Cine y TV</a>
+  <a href="actualidad.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Actualidad</a>
+  <a href="comunidad.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center; border-bottom:1px solid rgba(255,255,255,0.2);">Comunidad</a>
+  <a href="archivors.html" style="font-family:'Habibi',serif; font-size:28px; color:#fff; text-decoration:none; padding:20px 0; width:100%; text-align:center;">ArchivosRS</a>
+</div>
+<main class="container my-4 px-3" style="max-width: 1160px; min-height: 50vh;">
+
+      <!-- Breadcrumb -->
+<div style="font-family: Georgia, serif; font-size: 16px; color: #999; margin-bottom: 16px;">
+  Home &gt; Música &gt; <span id="breadcrumb-actual">Destacados</span>
+</div>
+  
+  <!-- Contenedor del grupo de botones -->
+<div class="border border-secondary rounded-4 d-inline-flex p-1 mb-4" style="border-color: #dee2e6 !important;">
+    <button id="btn-destacados" class="btn text-white rounded-4 px-4 py-2 fw-bold tab-btn" style="background-color: #E8001C; border: none;" onclick="cambiarPestana('destacados')">Destacados</button>
+    
+    <button id="btn-entrevistas" class="btn text-dark rounded-4 px-4 py-2 fw-bold tab-btn" style="background: none; border: none;" onclick="cambiarPestana('entrevistas')">Entrevistas</button>
+    
+    <button id="btn-historias" class="btn text-dark rounded-4 px-4 py-2 fw-bold tab-btn" style="background: none; border: none;" onclick="cambiarPestana('historias')">Historias</button>
+  </div>
+
+ <div id="seccion-destacados">
+  
+  
+  <div class="row g-4">
+    
+  <div class="col-lg-9">
+  <a href="articulo-musica.html" class="text-decoration-none d-block position-relative rounded-4 overflow-hidden news-card hero-main" style="height: 600px;">
+    
+    <img src="Musica/foto1.png" class="w-100 h-100 transition-img" style="object-fit: cover;" alt="Noticia principal">
+    
+    <div class="overlay-hover position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(128, 128, 128, 0); transition: background-color 0.3s ease;"></div>
+    
+    <div class="position-absolute bottom-0 w-100 p-4 d-flex justify-content-between align-items-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+      <h2 class="text-white fw-bold mb-1" style="font-family: 'Playfair Display', serif; font-size: 40px;">
+        A 25 años de su lanzamiento, Is This It sigue más vigente que nunca
+      </h2>
+      <span class="text-white ms-3" style="font-size: 14px; white-space: nowrap;">Por Gabriel Cavallo</span>
+    </div>
+  </a>
+</div>
+
+    <!-- Columna Derecha: Sección TRENDING -->
+    <div class="col-lg-3 ps-lg-4">
+      <h3 class="fw-bold text-uppercase mb-4" style="font-family: var(--serif); font-size: 28px; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px;">
+        Trending
+      </h3>
+
+      <div class="d-flex flex-column gap-3">
+        <!-- Ítems de Trending (Ancho al 100% de la columna) -->
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/trending1.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Indio Solari: 10 canciones fundamentales de su carrera solista</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/trending2.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">The Cure tiene dos nuevos discos en marcha, según Robert Smith</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/trending3.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Entre sold outs y una expansión global, AKRIILA inicia una nueva etapa con 'Suave'</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/trending4.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Ya hay fecha oficial para el Día Mundial de Los Beatles</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="divider-thick"></div>
+<h2 class="news-section-title mb-4">Más noticias de Música</h2>
+ <div class="row g-4 mb-4 mt-0">
+  <div class="col-md-5">
+    <div class="news-card2">
+      <img src="Musica/mas noticias de musica/Rectangle 47-4.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">ELADIO CARRIÓN: El verdadero significado del éxito</h3>
+        <p class="news-card2-text">Más allá del reconocimiento y las diversas cimas artísticas que ha escalado, la estrella reflexiona el verdadero significado del poder y de ser considerado un magnate en el trap hispanohablante</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="news-card2">
+      <img src="Musica/mas noticias de musica/Rectangle 47-3.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">La última entrevista del Indio Solari en Rolling Stone: "Cuando yo muero mueren todos ustedes"</h3>
+        <p class="news-card2-text">Por primera vez completa para leer en la web, la última nota de tapa que protagonizó el músico en Rolling Stone, publicada en diciembre de 2016</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row g-4 mb-4">
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/mas noticias de musica/Rectangle 47.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Weezer anticipa la llegada de su "álbum de oro"</h3>
+        <p class="news-card2-text">Previsto para el 21 de agosto, el álbum incluirá 'Shine Again', el sencillo que la banda presentó como primer adelanto de esta nueva etapa.</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/mas noticias de musica/Rectangle 47-1.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Todo lo que sabemos sobre el nuevo álbum de Olivia Rodrigo</h3>
+        <p class="news-card2-text">Aquí están todos los detalles sobre You Seem Pretty Sad For a Girl So in Love, el esperado nuevo álbum de Olivia Rodrigo</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/mas noticias de musica/Rectangle 47-2.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Jeff Buckley: vivir sin prisa, morir en silencio y convertirse en un recuerdo eterno</h3>
+        <p class="news-card2-text">A 29 años de su fallecimiento, recordamos la vida, obra y legado de una de las voces más influyentes de la historia contemporánea que, incluso hoy, sigue marcando a millones de personas</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-end mb-5">
+  <a href="#" class="btn-ver-mas rounded-4" >Ver más</a>
+</div>
+  </div>
+</div>
+
+
+<div id="seccion-entrevistas" style="display: none; min-height: 400px;">
+        
+  <div class="row g-4">
+    
+   <div class="col-lg-9">
+  <a href="#" class="text-decoration-none d-block position-relative rounded-4 overflow-hidden news-card" style="height: 600px;">
+    
+    <img src="Musica/seccion2musica/Rectangle 5966.png" class="w-100 h-100 transition-img" style="object-fit: cover;" alt="Noticia principal">
+    
+    <div class="overlay-hover position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(128, 128, 128, 0); transition: background-color 0.3s ease;"></div>
+    
+    <div class="position-absolute bottom-0 w-100 p-4 d-flex justify-content-between align-items-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+      <h2 class="text-white fw-bold mb-1" style="font-family: 'Playfair Display', serif; font-size: 40px;">
+La última entrevista del Indio Solari en Rolling Stone: “Cuando yo muero mueren todos ustedes”      </h2>
+      <span class="text-white ms-3" style="font-size: 14px; white-space: nowrap;">Por Gabriel Cavallo</span>
+    </div>
+  </a>
+</div>
+
+    <!-- Columna Derecha: Sección TRENDING -->
+    <div class="col-lg-3 ps-lg-4">
+      <h3 class="fw-bold text-uppercase mb-4" style="font-family: var(--serif); font-size: 28px; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px;">
+        Trending
+      </h3>
+
+      <div class="d-flex flex-column gap-3">
+        <!-- Ítems de Trending (Ancho al 100% de la columna) -->
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion2musica/Rectangle 5972.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Greeicy y la Candela de su alma</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion2musica/Rectangle 5972-1.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">
+
+Allison: 20 años después, el vértigo de seguir tocando</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion2musica/Rectangle 5972-2.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Trueno: “Cantar afuera es como jugar en la Selección, sentís que estás representando al país”</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion2musica/Rectangle 5972-3.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Cazzu en la tapa de ROLLING STONE: “El sistema que oprime a la mujer está casi intacto”</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="divider-thick"></div>
+<h2 class="news-section-title mb-4">Más noticias de Música</h2>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-5">
+    <div class="news-card2">
+      <img src="Musica/seccion2musica/Rectangle 47-4.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">ELADIO CARRIÓN: El verdadero significado del éxito</h3>
+        <p class="news-card2-text">Más allá del reconocimiento y las diversas cimas artísticas que ha escalado, la estrella reflexiona el verdadero significado del poder y de ser considerado un magnate en el trap hispanohablante</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="news-card2">
+      <img src="Musica/seccion2musica/Rectangle 47-3.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">Cazzu en la tapa de ROLLING STONE: “El sistema que oprime a la mujer está casi intacto”"</h3>
+        <p class="news-card2-text">En Nueva York, la artista vive un momento consagratorio: sacude el Madison Square Garden después de publicar un libro y de debutar en el cine, pero advierte: "Hay que priorizar la resistencia y lo colectivo, más que lo que necesita uno".</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+</div>
+  </div>
+  <div class="row g-4 mb-4">
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion2musica/Rectangle 47.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Weezer anticipa la llegada de su "álbum de oro"</h3>
+        <p class="news-card2-text">Previsto para el 21 de agosto, el álbum incluirá 'Shine Again', el sencillo que la banda presentó como primer adelanto de esta nueva etapa.</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion2musica/Rectangle 47-1.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Jin: “Mi mayor sueño ha sido salir de gira con BTS”</h3>
+        <p class="news-card2-text">Aquí están todos los detalles sobre You Seem Pretty Sad For a Girl So in Love, el esperado nuevo álbum de Olivia Rodrigo</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion2musica/Rectangle 47-2.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Ginebras y la tragicomedia de lo que nada era para tanto</h3>
+        <p class="news-card2-text">A 29 años de su fallecimiento, recordamos la vida, obra y legado de una de las voces más influyentes de la historia contemporánea que, incluso hoy, sigue marcando a millones de personas</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-end mb-5">
+  <a href="#" class="btn-ver-mas rounded-4" >Ver más</a>
+</div>
+  </div>
+</div>
+    
+</div>
+
+  <div id="seccion-historias" style="display: none; min-height: 400px;">
+     <div class="row g-4">
+    
+   <div class="col-lg-9">
+  <a href="#" class="text-decoration-none d-block position-relative rounded-4 overflow-hidden news-card" style="height: 600px;">
+    
+    <img src="Musica/foto1.png" class="w-100 h-100 transition-img" style="object-fit: cover;" alt="Noticia principal">
+    
+    <div class="overlay-hover position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(128, 128, 128, 0); transition: background-color 0.3s ease;"></div>
+    
+    <div class="position-absolute bottom-0 w-100 p-4 d-flex justify-content-between align-items-end" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+      <h2 class="text-white fw-bold mb-1" style="font-family: 'Playfair Display', serif; font-size: 40px;">
+        A 25 años de su lanzamiento, Is This It sigue más vigente que nunca
+      </h2>
+      <span class="text-white ms-3" style="font-size: 14px; white-space: nowrap;">Por Gabriel Cavallo</span>
+    </div>
+  </a>
+</div>
+
+    <!-- Columna Derecha: Sección TRENDING -->
+    <div class="col-lg-3 ps-lg-4">
+      <h3 class="fw-bold text-uppercase mb-4" style="font-family: var(--serif); font-size: 28px; border-bottom: 2px solid #000; display: inline-block; padding-bottom: 5px;">
+        Trending
+      </h3>
+
+      <div class="d-flex flex-column gap-3">
+        <!-- Ítems de Trending (Ancho al 100% de la columna) -->
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion3musica/Rectangle 5972.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Milo J: Lejos de lo efímero, cerca de lo eterno</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion3musica/Rectangle 5972-1.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">
+
+Joaquina, la sensibilidad poética hecha música</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion3musica/Rectangle 5972-2.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">Kapo: de la gasolina al fuego</p>
+          </div>
+        </a>
+
+        <a href="#" class="text-decoration-none text-white position-relative d-block overflow-hidden rounded-3" style="height: 120px;">
+          <img src="Musica/seccion3musica/Rectangle 5972-3.png" class="w-100 h-100 object-fit-cover" style="object-position: center;">
+          <div class="position-absolute bottom-0 p-3 w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+            <p class="fw-bold lh-sm m-0" style="font-size: 15px; font-family: 'Georgia', serif; text-align: center;">
+
+Latin Mafia: el éxito está en vivir y sentir la música</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="divider-thick"></div>
+<h2 class="news-section-title mb-4">Más noticias de Música</h2>
+
+<div class="row g-4 mb-4">
+  <div class="col-md-5">
+    <div class="news-card2">
+      <img src="Musica/seccion3musica/Rectangle 47-4.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">Suga: “Encajo bien en este trabajo”</h3>
+        <p class="news-card2-text">El rapero y productor de BTS habla sobre ayudar a darle forma al sonido de Arirang, su amor por el hip hop, y el futuro de la banda</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="news-card2">
+      <img src="Musica/seccion3musica/Rectangle 47-3.png" class="news-card2-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card2-title">La dupla explosiva: el estallido de Ca7riel y Paco Amoroso resonó en todo el mundo</h3>
+        <p class="news-card2-text">Entre risas, música y caos compartido, hoy el dúo argentino lidera la música latina y marca la pauta para el futuro</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+</div>
+  </div>
+  <div class="row g-4 mb-4">
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion3musica/Rectangle 47.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Jeff Buckley: vivir sin prisa, morir en silencio y convertirse en un recuerdo eterno</h3>
+        <p class="news-card2-text">A 29 años de su fallecimiento, recordamos la vida, obra y legado de una de las voces más influyentes de la historia contemporánea que, incluso hoy, sigue marcando a millones de personas</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion3musica/Rectangle 47-1.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">El espíritu folk sigue a Kevin Kaarl hacia donde sea que vaya</h3>
+        <p class="news-card2-text">Ya son varios años desde que el cantautor cautivó a la juventud con su música sincera. </p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="news-card2">
+      <img src="Musica/seccion3musica/Rectangle 47-2.png" class="news-card3-img" alt="">
+      <div class="news-card2-body">
+        <h3 class="news-card3-title">Latin Mafia: el éxito está en vivir y sentir la música</h3>
+        <p class="news-card2-text">Después del frenesí de un exitoso debut, una extensa gira y un rápido ascenso a la cima de la música en español, el trío de hermanos se toma un respiro para reconsiderar lo que es importante</p>
+        <a href="#" class="art-leer-mas">Seguir leyendo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-end mb-5">
+  <a href="#" class="btn-ver-mas rounded-4" >Ver más</a>
+</div>
+  </div>
+</div>
+    
+</div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+
+<!-- FOOTER -->
+<footer class="bg-black text-white pt-5 pb-4 mt-5" style="font-family: Georgia, serif;">
+  <div class="container" style="max-width: 1160px;">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-6 pe-3 mb-4 mb-sm-0">
+            <h5 class="font-serif fw-bold text-uppercase fs-6 m-0 text-white tracking-wide" style="white-space: nowrap;">Rolling Stone en Español</h5>
+            <div class="border-bottom border-light opacity-25 my-2" style="border-width: 1px !important;"></div>
+            <ul class="list-unstyled d-flex flex-column gap-2 pt-2" style="font-size: 14px;">
+              <li><a href="index.html" class="text-white text-decoration-none opacity-75">Música</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Cine y TV</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Actualidad</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Comunidad</a></li>
+              <li><a href="#" class="text-white text-decoration-none opacity-75">Archivo RS</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 ps-sm-4">
+            <h5 class="font-serif fw-bold text-uppercase fs-6 m-0 text-white tracking-wide">Seguinos en</h5>
+            <div class="border-bottom border-light opacity-25 my-2" style="border-width: 1px !important;"></div>
+            <ul class="list-unstyled d-flex flex-column gap-2 pt-2" style="font-size: 14px;">
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Facebook.png" alt="Facebook" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Facebook</a>
+              </li>
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Twitter.png" alt="Twitter" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Twitter</a>
+              </li>
+              <li class="d-flex align-items-center mb-1">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/Instagram.png" alt="Instagram" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Instagram</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <div class="me-3 d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                  <img src="archivoRs-home/YouTube.png" alt="Youtube" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a href="#" class="text-white text-decoration-none opacity-75">Youtube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ps-md-5 border-start border-secondary border-opacity-25">
+        <div class="mb-3 text-center text-md-start">
+          <img src="imagenes/Rolling_Stone_logo.svg.png" alt="Rolling Stone" style="max-height: 40px; width: auto; object-fit: contain;">
+        </div>
+        <div class="border-top border-bottom border-secondary border-opacity-25 py-2 my-3">
+          <div class="d-flex flex-wrap justify-content-between gap-2 text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 0.5px; font-family: sans-serif;">
+            <a href="#" class="text-white text-decoration-none opacity-90">Contactos</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Privacidad</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Términos de uso</a>
+            <a href="#" class="text-white text-decoration-none opacity-90">Publicidad</a>
+          </div>
+        </div>
+        <p class="text-secondary small lh-lg opacity-75 mt-3 mb-0" style="font-size: 12.5px; text-align: justify;">
+          Rolling Stone en Español es publicada por Tasty Media bajo licencia exclusiva de Rolling Stone LLC, una subsidiaria de Penske Media Corporation. Rolling Stone® es una marca registrada Rolling Stone, LLC. ©2025 Rolling Stone, LLC. Todos los derechos reservados. El nombre ROLLING STONE y el logo también son marcas registradas de Rolling Stone, LLC, cuya licencia ha sido concedida a TASTY MEDIA.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
